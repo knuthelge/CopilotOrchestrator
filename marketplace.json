@@ -1,0 +1,19 @@
+{
+  "name": "copilot-orchestrator",
+  "owner": {
+    "name": "Knut Risheim",
+    "url": "https://github.com/knuthelge"
+  },
+  "metadata": {
+    "description": "A collection of agents for orchestrating multi-step Copilot tasks.",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "copilot-orchestrator",
+      "description": "Agents for orchestrating implementation tasks, bug fixes, and general development work using specialized subagents.",
+      "version": "0.1.0",
+      "source": "."
+    }
+  ]
+}
