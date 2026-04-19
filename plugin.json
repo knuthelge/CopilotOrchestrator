@@ -1,0 +1,15 @@
+{
+  "name": "copilot-orchestrator",
+  "description": "A collection of agents and tools to efficiently solve implementation tasks, bug fixes and general tasks, by orchestrating multiple agents.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Knut Risheim",
+    "url": "https://github.com/knuthelge"
+  },
+  "keywords": [
+    "copilot",
+    "agents",
+    "orchestration"
+  ],
+  "agents": "agents/"
+}
