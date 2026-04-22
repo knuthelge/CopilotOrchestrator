@@ -221,6 +221,7 @@ For EACH todo item, execute this loop:
 **Note:** For UI-affected tasks, ensure `UI Affected: yes` is set in every prompt — subagents apply visual spec and browser verification automatically from their built-in rules.
 
 **Step 1:** Spawn **Developer** (implement mode) for the specific todo item
+   - Select the appropriate LLM for the Developer based on the task type and complexity (e.g., GPT-5.4 for complex features and backend logic, Sonnet 4.6 for simpler tasks or frontend/UI work). Consider the Developer's strengths and weaknesses relative to the task requirements when choosing the model.
 **Step 2:** Spawn **Tester** to review + test the implementation
 **Step 3:** If Tester returns FAIL → spawn **Developer** (fix mode) with the failure report
 **Step 4:** Re-spawn **Tester** after fix

@@ -2,7 +2,6 @@
 name: Developer
 description: Primary code-writing and bug-fixing worker — implements features per spec and diagnoses/fixes failures.
 tools: [vscode, execute, read, agent, edit, search, web, 'ddg-search/*', 'github/*', browser, github.vscode-pull-request-github/issue_fetch, github.vscode-pull-request-github/labels_fetch, github.vscode-pull-request-github/notification_fetch, github.vscode-pull-request-github/doSearch, github.vscode-pull-request-github/activePullRequest, github.vscode-pull-request-github/pullRequestStatusChecks, github.vscode-pull-request-github/openPullRequest, todo]
-model: GPT-5.4 (copilot)
 ---
 
 <AGENT_RULES>
