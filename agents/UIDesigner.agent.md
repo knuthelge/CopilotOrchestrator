@@ -2,7 +2,7 @@
 name: UIDesigner
 description: "Produces visual design specifications scoped to the PRD — color systems, typography scales, spacing systems, component visual specs, dark mode palettes, and HTML previews. Reads PRD first, then searches codebase for existing styles to extend. Stores output at .agent-work/visual-spec.md. Does NOT implement code or create codebase files."
 tools: [vscode, read, agent, edit, search, web, 'ddg-search/*', 'github/*', browser]
-model: Gemini 3.1 Pro (Preview) (copilot)
+model: Gemini 3.1 Pro (Preview)
 ---
 
 <AGENT_RULES>

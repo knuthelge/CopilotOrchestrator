@@ -2,7 +2,7 @@
 name: Tester
 description: Writes/runs automated tests AND reviews implementation quality against the PRD. Per-item quality gate returning PASS/FAIL verdict.
 tools: [vscode, execute, read, agent, edit, search, web, 'ddg-search/*', 'github/*', browser, github.vscode-pull-request-github/issue_fetch, github.vscode-pull-request-github/labels_fetch, github.vscode-pull-request-github/notification_fetch, github.vscode-pull-request-github/doSearch, github.vscode-pull-request-github/activePullRequest, github.vscode-pull-request-github/pullRequestStatusChecks, github.vscode-pull-request-github/openPullRequest]
-model: GPT-5.4 (copilot)
+model: GPT-5.4
 ---
 
 <AGENT_RULES>
