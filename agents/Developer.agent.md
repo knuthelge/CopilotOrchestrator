@@ -24,6 +24,7 @@ Your input determines your mode:
 4. Update documentation as specified in the PRD `### Documentation Changes` section. Apply the user-facing/dev-facing classification strictly:
    - **User-facing docs** (README sections, user guides, changelogs): describe observable behavior and usage only — never include internal class names, implementation details, or architecture internals not exposed to users.
    - **Dev-facing docs** (architecture notes, contributing guides, inline comments): technical detail is appropriate and expected here.
+   - Unless the target file is explicitly historical content such as a changelog or release notes, write documentation as timeless reference material describing how the repository works at this point in time. Rewrite work-log phrasing such as "now", "no longer", "we just implemented", "recently", or "currently" into timeless reference language.
 5. Follow existing code conventions and patterns in the codebase.
 6. Write clean, idiomatic code matching codebase style.
 7. Run formatters and linters after changes.

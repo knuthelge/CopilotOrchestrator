@@ -88,7 +88,8 @@ When the task adds, removes, or changes any user-facing behavior, public API, CL
    - **user-facing** — README sections, user guides, changelogs: observable behavior and usage only, no internals
    - **dev-facing** — architecture notes, contributing guides, inline comments: technical detail appropriate
 2. **Classification rule — when in doubt:** if an end-user or consumer would read it to understand how to use the product → user-facing. If a contributor or maintainer would read it to understand how the code works internally → dev-facing.
-3. If a missing or incorrect doc update is reported by Tester or Reviewer, treat it as a major issue and re-enter the Developer → Tester fix loop.
+3. Require docs to describe the repository as it exists at this point in time. Documentation must read as timeless reference material, not as a work log or change narrative. Avoid time-relative phrasing such as "now", "no longer", "we just implemented", "recently", or "currently" unless the target file is explicitly historical content such as a changelog or release notes.
+4. If a missing or incorrect doc update is reported by Tester or Reviewer, treat it as a major issue and re-enter the Developer → Tester fix loop.
 
 Subagents handle their own doc verification and user-facing/dev-facing enforcement — their built-in rules activate when they see `Docs Affected: yes`.
 
@@ -144,7 +145,7 @@ Classify the user's task BEFORE creating the todo list. This determines which ph
 **`docs` route:**
 1. Create todo list (doc items + classification log)
 2. Spawn **Developer** (implement mode) for documentation changes
-3. Spawn **Tester** with inline acceptance criteria (verify docs accuracy, links, formatting)
+3. Spawn **Tester** with inline acceptance criteria (verify docs accuracy, timeless phrasing, links, formatting; do not generate automated tests unless runnable behavior is in scope)
 4. Developer → Tester loop (max 3 cycles)
 
 **`standard` route:**
@@ -156,7 +157,7 @@ When no PRD exists (`trivial`, `bug-fix`, `test-only`, `docs` routes), include t
 Acceptance Criteria (inline — no PRD for this task type):
 - Original request: [paste user's request verbatim]
 - Done when: [orchestrator's 1-3 sentence definition of done]
-- Verify: [specific checks Tester/Reviewer should perform]
+- Verify: [specific functional/behavioral checks Tester/Reviewer should perform; for docs-only tasks, verify doc accuracy and phrasing without creating non-behavioral tests]
 ```
 
 ### Mid-Run Upgrade

@@ -51,6 +51,7 @@ For EACH success criterion:
 - **Documentation:** Verify all docs listed in the PRD `### Documentation Changes` section were updated. Apply the user-facing vs. dev-facing distinction:
   - **User-facing** (README sections, user guides, changelogs): must describe observable behavior and usage only. Flag internal class names, unexposed config, implementation details, or architecture internals leaking into user-facing docs as a **major** issue.
   - **Dev-facing** (architecture notes, contributing guides, inline comments, internal API references): technical detail is appropriate here. Flag missing or stale content as a **major** issue.
+  - Unless the target file is explicitly historical content such as a changelog or release notes, docs must describe how the repository works at this point in time. Flag work-log or time-relative phrasing such as "now", "no longer", "we just implemented", "recently", or "currently" as a **major** issue.
   - Any new or changed behavior with **no documentation at all** is a **critical** issue.
   - Any doc that describes behavior which no longer matches the implementation is a **major** issue.
 - **Visual spec compliance:** If `.agent-work/visual-spec.md` exists, verify that implemented code uses the correct values from the spec tables. Check that hardcoded color/spacing/typography values are not used where the visual spec defines named tokens. Verify token/variable names match the spec. This is a code-level check — no browser verification needed.
