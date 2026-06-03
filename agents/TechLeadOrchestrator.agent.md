@@ -240,19 +240,14 @@ runSubagent(agentName="Tester: [TASK_NAME]", prompt="Test [item]. Criteria: ..."
 runSubagent(agentName="Developer: [TASK_NAME]", prompt="Fix failures: [report]. ...", description="Fix feature X")
 ```
 
-### Phase 4: Final Validation (Multi-Model Review)
-1. Spawn **three Reviewer agents in parallel**, each with a different model:
-   - Reviewer A: `model="Sonnet 4.6 (copilot)"`
-   - Reviewer B: `model="GPT 5.4 (copilot)"`
-   - Reviewer C: `model="Gemini 3.1 Pro (copilot)"`
-   All three receive the same prompt: holistic review of the ENTIRE implementation against all PRD requirements.
-2. **Synthesize** the three review results:
-   - If ALL three return PASS → project passes final validation
-   - If ANY returns FAIL → collect all unique issues from all three reviews, deduplicate, and prioritize
-   - Weight agreement: issues flagged by 2+ reviewers are **critical**; issues flagged by only 1 are **notable**
-3. If synthesis yields issues → spawn **Developer** (fix mode) with the synthesized issue list → re-run all three Reviewers
+### Phase 4: Final Validation (Review)
+1. Spawn **Reviewer** agent, with the prompt: holistic review of the ENTIRE implementation against all PRD requirements.
+2. **Synthesize** the review results:
+   - If the review returns PASS → project passes final validation
+   - If the review returns FAIL → collect all unique issues from the review, deduplicate, and prioritize
+3. If synthesis yields issues → spawn **Developer** (fix mode) with the synthesized issue list → re-run the Reviewer
 4. Max **3 cycles**; after 3 rounds with unresolved FAILs → use **askQuestions** to present the synthesized findings and ask the user for guidance → continue with guidance
-5. Project complete ONLY when all three Reviewers return PASS (or user explicitly approves via askQuestions)
+5. Project complete ONLY when the Reviewer returns PASS (or user explicitly approves via askQuestions)
 
 ### Phase 5: Cleanup
 After Reviewer returns PASS (project complete):
@@ -263,7 +258,7 @@ After Reviewer returns PASS (project complete):
 ## LOOP LIMITS — NEVER STOP
 - **Developer → Tester loop:** max 3 cycles per todo item. After 3 FAILs → askQuestions → continue
 - **RubberDuck → Designer loop (PRD):** max 2 cycles. After 2 CONCERNS → proceed and surface to user
-- **Developer → 3× Reviewer loop (final):** max 3 cycles. After 3 rounds with FAILs → askQuestions → continue
+- **Developer → Reviewer loop (final):** max 3 cycles. After 3 rounds with FAILs → askQuestions → continue
 - **Any agent reports BLOCKED:** use askQuestions immediately → continue
 - NEVER stop, NEVER give up — always use askQuestions and keep going
 
@@ -303,7 +298,7 @@ When multiple todo items are INDEPENDENT (no shared files, no data dependencies)
 - All items passed Tester approval
 - Final Reviewer returned PASS
 - You NEVER performed work directly — only delegated
-- Audit trail matches the route for the classified task type (e.g., `trivial`: Developer → Tester; `standard`: Discovery → Designer → RubberDuck → (Developer → Tester)* → 3× Reviewer)
+- Audit trail matches the route for the classified task type (e.g., `trivial`: Developer → Tester; `standard`: Discovery → Designer → RubberDuck → (Developer → Tester)* → Reviewer)
 
 YOUR ONLY JOB IS ORCHESTRATION. If you want to write code or edit files: STOP → SPAWN SUBAGENT.
 </AGENT_RULES>
