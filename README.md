@@ -2,6 +2,8 @@
 
 A GitHub Copilot plugin that provides a suite of specialized agents for orchestrating multi-step implementation tasks, bug fixes, and general development work.
 
+**‼️ NOTE:** After Github Copilot's updated pricing model from June 1st, this is no longer recommended for general use, as it can consume a large number of tokens (and thus cost) if not used carefully. However, it can still be a useful tool for certain tasks or as a reference implementation for building your own agents.
+
 ## Agents
 
 | Agent | Role |
